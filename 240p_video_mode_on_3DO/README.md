@@ -1,6 +1,6 @@
 # **240p mode on the 3DO**
 
-The 3DO is an interesting piece of hardware. Originally designed to output a standard definition video signal at 480i NTSC or 576i PAL. A while ago it was discovered that the 3DO could be modded to output its video signal in progressive mode at 240p NTSC or 288P PAL. For more detailed information on how the 3DO handles 240p check here https://3dodev.com/documentation/hardware/opera/240p_mode.
+The 3DO is an interesting piece of hardware. Originally designed to output a standard definition video signal at 480i NTSC or 576i PAL. A while ago it was discovered that the 3DO could be modded to output its video signal in progressive mode at 240p NTSC or 288p PAL. For more detailed information on how the 3DO handles 240p check here https://3dodev.com/documentation/hardware/opera/240p_mode.
 This method was originally documented here https://www.retrorgb.com/3do240p.html (original thread here https://assemblergames.org/viewtopic.php?t=816) but some 3DO models had trouble booting in 240p so users had to switch back from 480i after booting the console. This guide hopes to gather all the information I have found through my research and illustrate how to correctly modify a 3DO console to produce 240p video output. It will also hopefully dispel some of the misconceptions around it.
 
 ## **Background**
@@ -15,3 +15,26 @@ There are two approaches to this mod. The first option is to lift the interlace 
 ![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/BT9103_240p_crop.png)
 
 ### **Panasonic FZ-1 with BT9103 Encoder (PAL/ CAN)**
+
+Panasonic FZ-1 from Europe (PAL) and Canada (NTSC) contain the BT9103 video encoder. The BT9103 video encoder can display non-standard progressive video by setting the Interlace pin (Pin 59) to a logical zero (GND). By attaching a switch, the Interlace pin can be switched between a logical one (5V) and a logical zero (GND) switching between 480i and 240p respectively. 
+First prepare the motherboard by removing R166 (or R164 if Canadian version). This will remove any connection to the CLIO digital video processor and any pull-up resistors.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/IMG_2038_R166.jpg)
+
+Then solder wires from your switch to the points indicated below. You can also solder this wire to the pad of R166. There are many options for GND and 5V on the board, these points were chosen for convenience assuming you are using a standalone switch (you can even use a custom pcb with a mini din connector and switch if combining with RGB mod, more on that later ;-) (The print on the encoder is orientated differently  in the next picture due to a newer encoder being installed in the same space for a different mod). For the sake of this guide 'INT' refers to the Interlace/ Progressive switching pin of the respective Video encoder.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/IMG_2311_pinout.jpg)
+
+If you have the Canadian version, R165 will not be present and you will need to solder your 5V wire to the other pad as indicated. Or you can get 5V from another point.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/IMG_2311_pinout_alt.jpg)
+
+Next either solder your wires to a simple SPDT switch.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/IMG_2056_cropped.jpg)
+
+Or use a custom pcb which lines up with the original shell cut outs for the RF modulator and switch.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/IMG_2642(cropped).jpg)
+
+
