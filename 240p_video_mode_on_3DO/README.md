@@ -37,4 +37,33 @@ Or use a custom pcb which lines up with the original shell cut outs for the RF m
 
 ![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/IMG_2642(cropped).jpg)
 
+### **Panasonic FZ-1 with VP536 encoder (US/ JP)**
+
+All Japanese Panasonic FZ-1 and some US Panasonic FZ-1 contain the VP536 video encoder. This video encoder is the reverse of the BT9103 in a sense in that logical one on pin 52 switches it to progressive mode while logical zero switches it to interlace mode.
+Once again remove R166. This breaks the connection with the CLIO and also any pull-up resistors (naughty R167).
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/VP536_remove.jpg)
+
+Then solder wires from your switch to the points indicated below. The VP536 has weak internal pull down resistors which maintain a default 480i state if nothing is connected externally to pin 52. You could just wire pin 52 to a switch and 5V using 2 wires but I always like to use external wires in case the internal resistor fails.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/VP536_pinout.jpg)
+
+### **Panasonic FZ-10 with VP536 encoder (US/ JP)**
+
+The early Panasonic FZ-10 came with the VP536 encoder. Later releases came with the new Anvil combined chipset which didn't have 240p ability. This model had a common problem of not being able to boot in 240p mode. Users had to boot in 480i and switch back to 240p once booted.
+One day I had a closer look and noticed that even though R166 was not soldered to the board, there was a trace running through the middle. 
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/FZ_10_R166.jpg)
+
+By cutting the trace with a scalpel, the connection to pin 197 on the CLIO, and any other pull down resistors upstream, can be broken. This avoids the VP536 from being put into conflicting states and causing boot issues. 
+
+Cut the trace in between the pads of R166. No need to go crazy, just cut deep enough to break the trace. Confirm with a multimeter to check for continuity between the pads.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/FZ_10_cut_arrow.jpg)
+
+Then solder wires from your switch to the points indicated below. The VP536 has a weak internal pull down resistor which maintains a default 480i state if nothing is connected externally to pin 52. You could just wire pin 52 to a switch and 5V using 2 wires but I always like to use external wires in case the internal resistor fails. 5V and GND can be grabbed from numerous places on the board, I have just shown 2 options based on convenience.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/FZ_10_pinout.jpg)
+
+
 
