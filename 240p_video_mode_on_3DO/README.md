@@ -6,3 +6,5 @@ This method was originally documented here https://www.retrorgb.com/3do240p.html
 ## Background
 
 A while ago, before we had publicly available hardware docs on the different 3DO hardware, I decided to try and see if any other models besides 3DO containing the VP536 encoder could be switched into 240p mode. I discovered that the Panasonic FZ-1E (PAL) and FZ-1 released in Canada containing the Brooktree BT9103 encoder could also handle 240p. Upon further investigation I found that the 3DO VDP (CLIO) had a pin for controlling interlace/ progressive mode on the analogue video encoder. 
+
+
