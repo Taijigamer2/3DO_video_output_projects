@@ -114,4 +114,3 @@ Sadly the 3DO with the Anvil chip are unable to support 240p as all digital and 
 ### **Conclusion**
 
 So we can see that while 3DO may have officially binned the idea of supporting 240p switching in their software, we can restore support in many of the various 3DO consoles. With correct application, these consoles can switch in 240p as effectively as the 'A/B Mode' Japanese FZ-1. No more having to boot the console in 480i and then switch back to 240p.
-|
