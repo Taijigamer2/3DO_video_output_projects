@@ -65,5 +65,53 @@ Then solder wires from your switch to the points indicated below. The VP536 has 
 
 ![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/FZ_10_pinout.jpg)
 
+### **Panasonic FZ-1 with VP536 encoder and A/B switch (JP)**
 
+Some Japanese Panasonic FZ-1 released with a switch on the back marked 'A B MODE SELECT'. These 3DO had the ability to switch between Mode A (480i) and Mode B (240p) out of the box. For a while it was assumed that these models did something different to switch to 240p without causing boot issues. 
 
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/AB_Switch.png)
+
+When examined closely, the only difference between this model and the standard Japanese Panasonic FZ-1 was a dedicated trace from Pin 52 on the VP536 encoder to a re-appropriated RF-Modulator box. 
+The footprints for Filters L520 and LC520 had been bridged with resistors to provide 5V to the box and 'Mode Select' signal to pin 52 of the VP536 respectively. Also notice that R166 is absent by default which stops upstream signals from causing unwanted states on the mode select pin.
+
+![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/VP536_AB.jpg)
+
+So while this version of the Panasonic FZ-1 is great for already having a 240p mode switch installed and a nice aesthetic, it doesn't contain any special integrated circuits for processing 240p compared to other 3DO. 
+
+### **Goldstar GDO101 with VP536 encoder**
+
+Unfortunately I do not have a Goldstar GDO101 to illustrate the steps but the principles are the same and information regarding the resistor to remove can be found here http://dansprojects.com/3do_goldvp536a.html
+
+### **Sanyo Try IMP-21J with VP536 encoder**
+
+Unfortunately I do not have a Sanyo Try IMP-21J to illustrate the steps but the principles are the same. If anyone has a Sanyo Try and wants help with their 240p switch install, they are welcome to message me and I will try to assist them.
+
+### **3DO Models and 240p compatibility**
+
+There are a variety of 3DO models that were released to the world. Unfortunately not all of them contained analogue video encoders which could support progressive video scanning. Here is the list of 3DO models with respective analogue video encoders that can or can't support 240p. Some models changed their encoders during their production lifecycle. I have given rough time frames to the best of my knowledge but the only way to be sure is to open them up.
+
+|3DO Model               |  Video Encoder  |  240p Support  |
+|      :---:             |      :---:      |      :---:     |
+|Panasonic FZ-1 US 1993  |  BT9101         |      No        |
+|Panasonic FZ-1 US 1994  |  VP536          |     Yes        |
+|Panasonic FZ-1 PAL/CAN  |  BT9103         |     Yes        |
+|Panasonic FZ-1 JP       |  VP536          |      Yes       |
+|Panasonic FZ-10 1994    |  VP536          |     Yes        |
+|Panasonic FZ-10 1995    |   Anvil         |     No         |
+|Goldstar GDO-101        |  VP536          |     Yes        |
+|Goldstar GDO-202        |   Anvil         |     No         |
+|Goldstar GDO-203        |   Anvil         |     No         |
+|Sanyo Try IMP-21J       |   VP536         |     Yes        |
+
+For more in depth information about the various 3DO console revisions please check out https://archive3do.com and https://3dodev.com
+
+### **Final notes**
+
+The Panasonic FZ-1 with BT9101 is not 240p capable but this can still be modded to output 240p with the use of a CPLD based RGB mod which can produce its own video synchronisation signals (HSYNC/ VSYNC). The RGB mod from Black Dog Technology https://www.black-dog.tech/3dorgb.html can be used to support 240p in FZ-1 with the BT9101 encoder. 
+The VP536 can also have an issue of switching on the wrong sync field when sometimes switched mid operation though I have not observed this behaviour with the BT9103. The 3DORGB mod from Black Dog Technology is time aligned and doesn't have this issue so is useful for people who may want to switch back and forth between scan rates. 
+Sadly the 3DO with the Anvil chip are unable to support 240p as all digital and analogue video processing is done inside the chip with no external pin to change the scan mode.
+
+### **Conclusion**
+
+So we can see that while 3DO may have officially binned the idea of supporting 240p switching in their software, we can restore support in many of the various 3DO consoles. With correct application, these consoles can switch in 240p as effectively as the 'A/B Mode' Japanese FZ-1. No more having to boot the console in 480i and then switch back to 240p.
+|
