@@ -10,7 +10,7 @@ A while ago, before we had publicly available hardware docs on the different 3DO
 ![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/IMG_2038_Interlace.jpg)
 
 I figured that this pin could be pulling the interlace/ progressive control pin high or low and conflicting with the 240p mod in some consoles, causing erratic behaviour. By removing R166, a 0 ohm bridging resistor, this would in theory stop the CLIO from interfering with the 240p switching. It turned out after further investigation that the CLIO Pin 197 is inactive. It is unclear if 3DO ever planned to utilise this feature. There is, however a weak pull up resistor (R167) which holds the line at 5V so removing R166 is recommended in all Panasonic consoles when performing the 240p mod. In Canadian 3DO it may be necessary to remove R164 instead.
-There are two approaches to this mod. The first option is to lift the interlace switching pin altogether and wire your switch. This way there is no chance of any unwanted states on this pin. The disadvantage to this is the PLCC package pins can be tricky to lift which also increases the risk of damage to the console and soldering directly to the chip increases the risk of bridging pins. The second option is to remove a resistor and solder to empty pads. This removes the risk of damage to the encoder and looks more eloquent. 
+There are two approaches to this mod. The first option is to lift the interlace switching pin altogether and wire your switch. This way there is no chance of any unwanted states on this pin. The disadvantage to this is the PLCC package pins can be tricky to lift which also increases the risk of damage to the console and soldering directly to the chip increases the risk of bridging pins. The second option is to remove a specific resistor and solder to empty pads. This removes the risk of damage to the encoder and looks more eloquent. 
 
 ![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/BT9103_240p_crop.png)
 
@@ -39,7 +39,7 @@ Or use a custom pcb which lines up with the original shell cut outs for the RF m
 
 ### **Panasonic FZ-1 with VP536 encoder (US/ JP)**
 
-All Japanese Panasonic FZ-1 and some US Panasonic FZ-1 contain the VP536 video encoder. This video encoder is the reverse of the BT9103 in a sense in that logical one on pin 52 switches it to progressive mode while logical zero switches it to interlace mode.
+All Japanese Panasonic FZ-1 and some US Panasonic FZ-1 contain the VP536 video encoder. This video encoder is the reverse of the BT9103 in the sense that a logical one on pin 52 switches it to progressive mode while logical zero switches it to interlace mode.
 Once again remove R166. This breaks the connection with the CLIO and also any pull-up resistors (naughty R167).
 
 ![](https://github.com/Taijigamer2/3DO_video_output_projects/blob/main/240p_video_mode_on_3DO/Images/VP536_remove.jpg)
