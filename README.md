@@ -25,7 +25,7 @@ with pinouts and service manuals of other models of Panasonic 3DO which formed t
 - 24bit digital RGB to analog RGB video encoder pcb
   - BU3616K based circuit
   - Outputs 700mV RGB
-  - CSYNC or SYNC over Luma
+  - CSYNC via LM1881 sync stripper or SYNC over Luma
   
 **3DO_RGB_V1.2**
 
