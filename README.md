@@ -42,10 +42,14 @@ with pinouts and service manuals of other models of Panasonic 3DO which formed t
   - XOR combined HSYNC/ VSYNC to create CSYNC
   - SYNC generation to restore 240p in 3DO with BT9101 encoders
 
-**8_PIN_Mini_Din_pcb
+**8_PIN_Mini_Din_pcb**
 
 - PCB to mount 8 pin mini din connector and 240p mode switch for RGB mods
   - Option for 7374 RGB amp or passive attenuation of RGB and SYNC signals
   - Solders to RF modulator footprint to reduce wires needed
 
-**
+**3DO_RGB_Native_Mod**
+
+- README.md
+  - Instruction on removing the native BT9103 encoder (compatible models only) and replacing with a BT856 encoder
+  - supports native analog RGB output and 240p
