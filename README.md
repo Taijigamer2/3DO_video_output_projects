@@ -37,7 +37,15 @@ with pinouts and service manuals of other models of Panasonic 3DO which formed t
 **3DO_RGB_V2**
 
 - 24bit digital RGB to analog RGB video encoder and Sync generator pcb
- - BT856 based circuit
- - Outputs 700mV RGB via 7374 video Amp (8 pin Mini Din pcb)
- - XOR combined HSYNC/ VSYNC to create CSYNC
- - SYNC generation to restore 240p in 3DO with BT9101 encoders
+  - BT856 based circuit
+  - Outputs 700mV RGB via 7374 video Amp (8 pin Mini Din pcb)
+  - XOR combined HSYNC/ VSYNC to create CSYNC
+  - SYNC generation to restore 240p in 3DO with BT9101 encoders
+
+**8_PIN_Mini_Din_pcb
+
+- PCB to mount 8 pin mini din connector and 240p mode switch for RGB mods
+  - Option for 7374 RGB amp or passive attenuation of RGB and SYNC signals
+  - Solders to RF modulator footprint to reduce wires needed
+
+**
